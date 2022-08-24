@@ -9,9 +9,9 @@ public class EmpWage {
 	int empHrs;
 	int totalEmpHrs = 0 ;
 	int totalWorkingDays = 0 ;
-	int totalEmpWage = 0;
+	static int totalEmpWage = 0;
 	
-	public void computeEmpWage() {
+	public int computeEmpWage() {
 	while(totalEmpHrs <= maxHrsInMonth && totalWorkingDays < numOfWorkingDays ) {
 		totalWorkingDays ++;
 	int empcheck = (int) Math.floor(Math.random() * 10 % 3);
@@ -33,12 +33,13 @@ public class EmpWage {
 	System.out.println("day:"+totalWorkingDays+ " Emp Hr : " +totalEmpHrs);
 	}
 	totalEmpWage = totalEmpHrs * empWagePerHrs;
-	System.out.println("\n total Emp Wage is: "+totalEmpWage);
+	return totalEmpWage;
 	}
 	
 	public static void main(String args[]){
 		System.out.println("<<< Welcome To Employee Wage computation program >>>");
 		EmpWage attendance = new EmpWage();
 		attendance.computeEmpWage();
+		System.out.println("\n total Emp Wage is: "+totalEmpWage);
 	}
 }
